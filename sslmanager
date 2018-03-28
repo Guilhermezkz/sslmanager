@@ -20,7 +20,7 @@ echo -e "\033[1;33mGerando Chave key"
 
 openssl genrsa 2048 > stunnel.key
 
-echo -e "\033[1;33mfique apertando enter"
+echo -e "\031[1;33mfique apertando enter"
 
 openssl req -new -key stunnel.key -x509 -days 1000 -out stunnel.crt
 
@@ -36,6 +36,7 @@ echo -e "\033[1;33mDigite a Porta"
 read -p ": " port
 clear
 echo -e "\033[1;33mConfigurando o stunnel.conf"
+
 echo "client = no
 [ssh]
 cert = /etc/stunnel/stunnel.pem
@@ -43,6 +44,7 @@ accept = $port
 connect = 127.0.0.1:22" >> /etc/stunnel/stunnel.conf
 
 echo -e "\033[1;33mConfigurando o default stunnel4"
+
 echo "ENABLED=1
 FILES="/etc/stunnel/*.conf"
 OPTIONS=""
