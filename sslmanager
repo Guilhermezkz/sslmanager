@@ -1,55 +1,60 @@
 #/bin/bash
-clear
+
 echo -e "\033[1;33m- - - - -> \033[01;34mScript Configurar o servidor para usar SSL/TLS Stunnel4"
 echo -e "\033[1;33mCanal PayloadHTTP"
 
 echo -e "\033[1;33mAtualizando repositorios"
-apt-get update -y
+
+apt-get update -y 1>/dev/null 2 /dev/null
 
 echo -e "\033[1;33mInstalando openssh"
-apt-get install openssh-server
-apt-get install openssh-client
+
+apt-get install openssh-server 1>/dev/null 2 /dev/null
+apt-get install openssh-client 1>/dev/null 2 /dev/null
 
 echo -e "\033[1;33mInstalando"
-apt-get install stunnel4 -y
-apt-get install stunnel -y
+apt-get install stunnel4 -y 1>/dev/null 2 /dev/null
+apt-get install stunnel -y 1>/dev/null 2 /dev/null
 
 echo -e "\033[1;33mGerando Chave key"
+
 openssl genrsa 2048 > stunnel.key
+
 echo -e "\033[1;33mfique apertando enter"
+
 openssl req -new -key stunnel.key -x509 -days 1000 -out stunnel.crt
 
 echo -e "\033[1;33mPronto"
 echo -e "\033[1;33mVerificar se a erros"
-cat stunnel.crt stunnel.key > stunnel.pem
+
+rm /etc/stunnel/stunnel.conf
+rm /etc/default/stunnel4
+cat stunnel.crt stunnel.key > stunnel.pem 
 mv stunnel.pem /etc/stunnel/
 
 echo -e "\033[1;33mDigite a Porta"
 read -p ": " port
 clear
-echo -e "\033[1;33mConfigurando\033[01;34m ..."
-
+echo -e "\033[1;33mConfigurando o stunnel.conf"
 echo "client = no
 [ssh]
 cert = /etc/stunnel/stunnel.pem
 accept = $port
-connect = 127.0.0.1:22' >> /etc/stunnel/stunnel.conf
-sleep 1s
-rm /etc/default/stunnel4
-sleep 1s
-echo "# Change to one to enable stunnel automatic startup
-ENABLED=1
+connect = 127.0.0.1:22" >> /etc/stunnel/stunnel.conf
+
+echo -e "\033[1;33mConfigurando o default stunnel4"
+echo "ENABLED=1
 FILES="/etc/stunnel/*.conf"
 OPTIONS=""
-# Change to one to enable ppp restart scripts PPP_RESTART=0' >> /etc/default/stunnel4
-sleep 1s
+PPP_RESTART=0" >> /etc/default/stunnel4
+
 echo -e "\033[1;33mIniciando stunnel SSL\TLS"
 
-service stunnel4 start
-service stunnel4 restart
+service ssh start 1>/dev/null 2 /dev/null
+service ssh restart 1>/dev/null 2 /dev/null
+service stunnel4 start 1>/dev/null 2 /dev/null
+service stunnel4 restart 1>/dev/null 2 /dev/null
 
 echo -e "\033[1;33mSe nao funcionar faz o comando REBOOT"
 echo -e "\033[1;33m- - ->>Canal \033[01;34mhttp://t.me/PayloadHTTP"
 echo -e "\033[1;33m- - ->>Feito POR \033[01;34m Gui"
-exit 0
-fi
