@@ -6,7 +6,6 @@ echo -e "\033[1;33m- - - - -> \033[01;34mScript Configure the server to use SSL 
 echo -e "\033[1;33m #################"
 echo -e "\033[1;31mC A N A L   PayloadHTTP"
 sleep 2
-clear
 
 apt-get update -y
 clear
@@ -50,11 +49,12 @@ echo -e "\033[1;33m ######################################"
 sleep 1
 openssl genrsa 2048 > stunnel.key
 openssl req -new -key stunnel.key -x509 -days 1000 -out stunnel.crt
+clear
 
 echo -e "\033[1;33m ######################################"
-echo -e "\033[1;31mC R I A N D O U M A  N O V A  C O N F I G U R A C A O"
+echo -e "\033[1;31mC R I A N D O  U M A  N O V A  C O N F I G U R A C A O"
 echo -e "\033[1;33m #################"
-echo -e "\033[1;31mC R E A T I N G  A  N E W  CO N F I G U R A T I O N"
+echo -e "\033[1;31mC R E A T I N G  A   N E W   CO N F I G U R A T I O N"
 echo -e "\033[1;33m ######################################"
 sleep 2
 rm /etc/stunnel/stunnel.conf
@@ -130,6 +130,8 @@ service stunnel4 restart 1>/dev/null 2 /dev/null
 /etc/init.d/stunnel4 restart 1>/dev/null 2 /dev/null
 systemctl start stunnel4 1>/dev/null 2 /dev/null
 systemctl restart stunnel 1>/dev/null 2 /dev/null
+clear
+
 echo -e "\033[1;33m #######OCORREU UNS ERROS NORMAIS PRONTO###############"
 sleep 2
 echo -e "\033[1;33m ###########REINICIADO...###########"
