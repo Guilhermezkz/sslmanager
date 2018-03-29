@@ -6,6 +6,7 @@ echo -e "\033[1;33m- - - - -> \033[01;34mScript Configure the server to use SSL 
 echo -e "\033[1;33m #################"
 echo -e "\033[1;31mC A N A L   PayloadHTTP"
 sleep 2
+
 apt-get update -y
 clear
 yum update -y
@@ -91,15 +92,15 @@ echo "cert = /etc/stunnel/stunnel.pem " >> /etc/stunnel/stunnel.conf
 echo "accept = $port " >> /etc/stunnel/stunnel.conf
 echo "connect = 127.0.0.1:22" >> /etc/stunnel/stunnel.conf
 
-"echo -e "\033[1;31m ###"
+echo -e "\033[1;31m ###"
 sleep 1
-"echo -e "\033[1;31m #########"
+echo -e "\033[1;31m #########"
 sleep 1
-"echo -e "\033[1;31m ################"
+echo -e "\033[1;31m ################"
 sleep 1
-"echo -e "\033[1;31m ########################"
+echo -e "\033[1;31m ########################"
 sleep 1
-"echo -e "\033[1;31m ##################################"
+echo -e "\033[1;31m ##################################"
 sleep 1
 
 echo -e "\033[1;33m ######################################"
@@ -139,7 +140,7 @@ service stunnel4 restart 1>/dev/null 2 /dev/null
 /etc/init.d/stunnel4 restart 1>/dev/null 2 /dev/null
 systemctl start stunnel4 1>/dev/null 2 /dev/null
 systemctl restart stunnel 1>/dev/null 2 /dev/null
-echo -e "\033[1;33m #######OCORREU UNS ERROS NORMAIS###############"
+echo -e "\033[1;33m #######OCORREU UNS ERROS NORMAIS ESPERE UM MOMENTO###############"
 sleep 2
 echo -e "\033[1;33m ###########REINICIADO...###########"
 clear
