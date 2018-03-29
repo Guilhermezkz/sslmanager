@@ -34,15 +34,6 @@ echo $ip
 clear
 
 echo -e "\033[1;33m ######################################"
-echo -e "\033[1;31mC O N F I G  S S H  P O R T  22"
-echo -e "\033[1;33m ######################################"
-sleep 1
-echo "Port 22" >> /etc/ssh/sshd_config
-echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
-echo "PermitTunnel yes" >> /etc/ssh/sshd_config
-clear
-
-echo -e "\033[1;33m ######################################"
 echo -e "\033[1;31mF I C A   A P E R T A N D O   E N T E R"
 echo -e "\033[1;33m #################"
 echo -e "\033[1;31mS T A R T  E N T E R"
@@ -130,6 +121,10 @@ echo -e "\033[1;31mS T A R T I N G  T H E  STUNNEL4"
 echo -e "\033[1;33m ######################################"
 sleep 1
 
+echo -e "\033[1;33m ######################################"
+echo -e "\033[1;33m ##### V A I  O C O R R E  E R R O S  N O R M A I S ######"
+echo -e "\033[1;33m ######################################"
+sleep 1
 service ssh start 1>/dev/null 2 /dev/null
 /etc/init.d/ssh start 1>/dev/null 2 /dev/null
 service sshd start 1>/dev/null 2 /dev/null
@@ -144,6 +139,10 @@ service stunnel4 restart 1>/dev/null 2 /dev/null
 /etc/init.d/stunnel4 restart 1>/dev/null 2 /dev/null
 systemctl start stunnel4 1>/dev/null 2 /dev/null
 systemctl restart stunnel 1>/dev/null 2 /dev/null
+echo -e "\033[1;33m #######OCORREU UNS ERROS NORMAIS###############"
+sleep 2
+echo -e "\033[1;33m ###########REINICIADO...###########"
+clear
 
 echo -e "\033[1;33m ######################################"
 echo -e "\033[1;31mC O N F I G U R A D O  C O M  S U C E S S O  F A C A  O T E S T E"
