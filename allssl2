@@ -132,7 +132,7 @@ service ssh restart 1>/dev/null 2 /dev/null
 /etc/init.d/ssh restart 1>/dev/null 2 /dev/null
 service stunnel4 start 1>/dev/null 2 /dev/null
 /etc/init.d/stunnel4 start 1>/dev/null 2 /dev/null
-service stunnel4 restart 1>/dev/null 2 /dev/null
+service stunnel4 restart
 /etc/init.d/stunnel4 restart 1>/dev/null 2 /dev/null
 systemctl start stunnel4 1>/dev/null 2 /dev/null
 systemctl restart stunnel 1>/dev/null 2 /dev/null
