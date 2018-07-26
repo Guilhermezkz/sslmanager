@@ -93,6 +93,7 @@ echo "sslVersion = ALL " >> /etc/stunnel/stunnel.conf
 echo "socket = a:SO_REUSEADDR=1 " >> /etc/stunnel/stunnel.conf
 echo "socket = l:TCP_NODELAY=1 " >> /etc/stunnel/stunnel.conf
 echo "socket = r:TCP_NODELAY=1 " >> /etc/stunnel/stunnel.conf
+echo "" >> /etc/stunnel/stunnel.conf
 echo "[ssh] " >> /etc/stunnel/stunnel.conf
 echo "connect = 127.0.0.1:22 " >> /etc/stunnel/stunnel.conf
 echo "accept = $port " >> /etc/stunnel/stunnel.conf
