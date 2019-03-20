@@ -122,6 +122,8 @@ echo -e "\033[1;33m ######################################"
 echo -e "\033[1;31m ##### V A I  O C O R R E  E R R O S  N O R M A I S AGUARDE...######"
 echo -e "\033[1;33m ######################################"
 sleep 1
+stunnel
+/usr/bin/stunnel &
 service ssh start 1>/dev/null 2 /dev/null
 /etc/init.d/ssh start 1>/dev/null 2 /dev/null
 service sshd start 1>/dev/null 2 /dev/null
